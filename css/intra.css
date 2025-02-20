@@ -1,0 +1,120 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 1.25rem;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  height: 100%;
+}
+.parent div {
+  border-radius: 25px;
+  background: #ffffff;
+}
+/*-----------------------------*/
+.div1 {
+  grid-area: 1 / 4 / 4 / 13;
+  border: 1px solid black;
+  color: #ff5d18;
+
+  display: flex;
+  justify-content: space-between;
+  background: #ffe0c7 !important;
+
+  flex-direction: column;
+
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.pesquisa img {
+  width: 1.8125rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+}
+.pesquisa {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 1.5rem 1.69rem 1.5rem 3.25rem;
+
+  flex-direction: row;
+
+  font-family: "inter";
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background: #ffffff;
+  margin-bottom: 10px;
+  border-radius: 0px !important;
+  border-bottom: 0.25rem solid #ff701e;
+}
+
+.bemvindo {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  max-height: 21.375rem;
+  background: #ffffff;
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+}
+/*-----------------------------*/
+.div3 {
+  grid-area: 1 / 13 / 3 / 17;
+  border: 1px solid black;
+} /*-----------------------------*/
+.div4 {
+  grid-area: 5 / 10 / 8 / 13;
+  border: 1px solid black;
+} /*-----------------------------*/
+.div5 {
+  grid-area: 4 / 10 / 5 / 13;
+  border: 1px solid black;
+} /*-----------------------------*/
+.div6 {
+  grid-area: 4 / 4 / 8 / 10;
+  border: 1px solid black;
+}
+
+/*-----------------------------*/
+.div7 {
+  overflow: hidden !important;
+  grid-area: 1 / 1 / 8 / 4;
+
+  background: #ff5d18 !important;
+
+  border-top-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 100px !important;
+  border-top-right-radius: 35px !important;
+
+  position: relative;
+}
+
+.cha {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.fundo {
+  content: none;
+  position: absolute;
+  top: -23%;
+  left: -30%;
+  transform: scale(0.9);
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+
+  background-repeat: no-repeat;
+} /*-----------------------------*/
+
+.div8 {
+  grid-area: 3 / 13 / 8 / 17;
+  border: 1px solid black;
+}
+/*-----------------------------*/
