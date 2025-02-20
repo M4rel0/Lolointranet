@@ -1,7 +1,8 @@
 * {
   font-family: "Inter", serif;
   font-style: normal;
-
+  list-style: none;
+  color: inherit;
   margin: 0;
   padding: 0;
   gap: 0;

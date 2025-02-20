@@ -7,6 +7,7 @@
   margin-top: 32px;
   margin-bottom: 32px;
   height: 100%;
+  margin-right: 2.25rem;
 }
 .parent div {
   border-radius: 25px;
@@ -15,7 +16,7 @@
 /*-----------------------------*/
 .div1 {
   grid-area: 1 / 4 / 4 / 13;
-  border: 1px solid black;
+
   color: #ff5d18;
 
   display: flex;
@@ -31,11 +32,12 @@
   width: 1.8125rem;
   height: 1.75rem;
   flex-shrink: 0;
+  align-self: center;
 }
 .pesquisa {
   display: flex;
   justify-content: space-between;
-
+  max-height: 0.6rem;
   padding: 1.5rem 1.69rem 1.5rem 3.25rem;
 
   flex-direction: row;
@@ -50,15 +52,152 @@
   border-radius: 0px !important;
   border-bottom: 0.25rem solid #ff701e;
 }
+.pesquisa p {
+  align-self: center;
+}
 
 .bemvindo {
+  position: relative;
   display: flex;
   justify-content: center;
   flex-grow: 1;
+  flex-direction: column;
   max-height: 21.375rem;
   background: #ffffff;
   border-top-left-radius: 0px !important;
   border-top-right-radius: 0px !important;
+}
+.bemvindo h1 {
+  color: #350c02;
+
+  width: fit-content;
+
+  font-family: "Kavoon", serif;
+  font-size: 3.3285rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.tituloEsub {
+  margin-top: 100px;
+  margin-left: 3.25rem;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  width: fit-content;
+  z-index: 10;
+  background: none !important;
+}
+.tituloEsub p {
+  color: #3d2624;
+
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+}
+.tituloEsub p:last-child {
+  color: #ff5d18;
+
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.footerBemvindo {
+  margin-left: 3.25rem;
+  margin-bottom: 2rem;
+  flex-grow: 0;
+  z-index: 10;
+  color: #350c02;
+
+  width: fit-content;
+  height: fit-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2px !important;
+
+  background: none !important;
+
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.footerBemvindo span {
+  color: #ff5d18;
+
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.imges {
+  z-index: 3;
+  position: absolute;
+  width: 400px;
+  height: 300px;
+  right: 0px;
+  background-color: none !important;
+}
+.imges img {
+  background-color: none !important;
+  position: absolute;
+}
+.a {
+  right: -30%;
+  bottom: +25%;
+}
+.aZ {
+  right: +57%;
+  bottom: -7%;
+}
+.g {
+  right: 2%;
+  bottom: -7%;
+}
+.f {
+  right: -30%;
+  bottom: -20%;
+}
+.diashoras {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  right: +10%;
+  bottom: -8%;
+  background: none !important;
+  flex-direction: column !important;
+}
+
+.dia {
+  z-index: 4 !important;
+
+  color: #fff;
+
+  font-family: Kavoon;
+  font-size: 2.28456rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.horas {
+  z-index: 4 !important;
+
+  color: #fff;
+
+  font-family: Kavoon;
+  font-size: 5.00844rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 /*-----------------------------*/
 .div3 {
