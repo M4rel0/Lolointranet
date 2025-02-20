@@ -59,6 +59,7 @@
 .bemvindo {
   position: relative;
   display: flex;
+
   justify-content: center;
   flex-grow: 1;
   flex-direction: column;
@@ -80,7 +81,7 @@
 }
 
 .tituloEsub {
-  margin-top: 100px;
+  margin-top: 90px;
   margin-left: 3.25rem;
   display: flex;
   flex-grow: 1;
@@ -152,18 +153,21 @@
 }
 .a {
   right: -30%;
-  bottom: +25%;
+  bottom: +17%;
 }
 .aZ {
-  right: +57%;
-  bottom: -7%;
+  height: 170px;
+  right: +45%;
+  bottom: -0%;
 }
 .g {
-  right: 2%;
-  bottom: -7%;
+  height: 300px;
+  right: 0%;
+  bottom: 0%;
 }
 .f {
-  right: -30%;
+  height: 178.26px;
+  right: -15%;
   bottom: -20%;
 }
 .diashoras {
@@ -174,6 +178,7 @@
   bottom: -8%;
   background: none !important;
   flex-direction: column !important;
+  text-align: end;
 }
 
 .dia {
@@ -197,7 +202,7 @@
   font-size: 5.00844rem;
   font-style: normal;
   font-weight: 400;
-  line-height: normal;
+  line-height: 0.7;
 }
 /*-----------------------------*/
 .div3 {
