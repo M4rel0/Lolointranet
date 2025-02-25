@@ -294,7 +294,7 @@
 
 /*-----------------------------*/
 .div4 {
-  grid-area: 5 / 10 / 8 / 13;
+  grid-area: 4 / 10 / 8 / 13;
   border: 1px solid black;
   border-bottom-right-radius: 6.25rem;
   display: flex;
@@ -319,11 +319,7 @@
   font-weight: 700;
   line-height: normal;
 }
-/*-----------------------------*/
-.div5 {
-  grid-area: 4 / 10 / 5 / 13;
-  border: 1px solid black;
-} /*-----------------------------*/
+
 .div6 {
   grid-area: 4 / 4 / 8 / 10;
 
@@ -503,7 +499,7 @@
 }
 
 .listaLayoutAgenda::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #ffffff;
   border-radius: 8px;
 }
 
@@ -513,7 +509,7 @@
 }
 
 .listaLayoutAgenda::-webkit-scrollbar-thumb:hover {
-  background: #f5dcc5;
+  background: #ffdfc0;
 }
 .listaAgenda {
   background: #e8e8e8;
