@@ -459,6 +459,129 @@
 
 .div8 {
   grid-area: 3 / 13 / 8 / 17;
-  border: 1px solid black;
 }
-/*-----------------------------*/
+
+.tituloAgenda {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 1.5625rem 1.5625rem 0rem 0rem;
+  background: #ff701e;
+
+  height: 4.1875rem;
+}
+.tituloAgenda img {
+  width: 29px;
+  align-self: self-start;
+  margin-top: -10px;
+}
+
+.tituloAgenda h4 {
+  color: #fff;
+
+  font-family: Inter;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  align-self: center;
+}
+
+.listaLayoutAgenda {
+  margin-top: 1.56rem;
+  margin-left: 0.88rem;
+  display: flex;
+  row-gap: 0.5rem;
+  flex-direction: column;
+  overflow: auto;
+  max-height: 550px;
+  overflow-x: hidden;
+  margin-right: 0.56rem;
+}
+.listaLayoutAgenda::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.listaLayoutAgenda::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.listaLayoutAgenda::-webkit-scrollbar-thumb {
+  background: #fae2cc;
+  border-radius: 8px;
+}
+
+.listaLayoutAgenda::-webkit-scrollbar-thumb:hover {
+  background: #f5dcc5;
+}
+.listaAgenda {
+  background: #e8e8e8;
+  margin-right: 10px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listaAgenda span:last-child {
+  display: flex;
+  margin-right: 20px;
+
+  justify-self: end;
+  align-self: center;
+
+  color: #fff;
+
+  text-shadow: 0px 0px 8.098px rgba(0, 0, 0, 0.25);
+  font-family: Inter;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.conteudoListaAgenda {
+  color: #5c3a37;
+  max-width: 231px;
+  font-family: Inter;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 12.5px 20px 12.5px 20px;
+}
+.conteudoListaAgenda p:first-child {
+  color: #350c02;
+
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.conteudoListaAgenda p:last-child {
+  color: #5c3a37;
+
+  font-family: Inter;
+  font-size: var(0.64rem);
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.reuniaoBotao {
+  padding: 8px 12px;
+  background: #ffa91e;
+  border-radius: 121.46rem;
+}
+.reuniaoCard {
+  background: #ffe7b2;
+}
+.eventoBotao {
+  padding: 8px 12px;
+  background: #1da8c0;
+  border-radius: 121.46rem;
+}
+.eventoCard {
+  background: #b2faff;
+}
