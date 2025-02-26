@@ -1,3 +1,23 @@
+* {
+  font-family: "Inter", serif;
+  font-style: normal;
+  list-style: none;
+  color: inherit;
+  margin: 0px;
+  padding: 0px;
+  gap: 0px;
+  text-decoration: 0px;
+  border-radius: 0px;
+}
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  background: #ffe0c7;
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
@@ -429,7 +449,7 @@
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 100px;
   border-top-right-radius: 35px;
-
+  z-index: 0;
   position: relative;
 }
 
@@ -438,7 +458,7 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: -1;
 }
 .fundo {
   content: none;
@@ -446,12 +466,63 @@
   top: -23%;
   left: -30%;
   transform: scale(0.9);
-  z-index: 0;
+  z-index: -2;
   background-size: cover;
   background-position: center;
 
   background-repeat: no-repeat;
-} /*-----------------------------*/
+}
+.containerDiv7 {
+  display: flex;
+  flex-direction: column;
+
+  margin-left: 2.6rem;
+
+  gap: 3.44rem;
+  margin-right: 2rem;
+}
+
+.marcaPrincipal {
+  padding-top: 3rem;
+  display: flex;
+  justify-self: center;
+
+  width: 10.99944rem;
+  height: 5.43756rem;
+}
+
+.menuSide {
+  display: flex;
+  flex-direction: column;
+}
+.itensSide {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  padding: 1.13rem 0 1.13rem 0;
+}
+.itensSide:not(:last-child) {
+  border-bottom: 3px solid #ff7741;
+}
+.itensSide p {
+  color: #fff;
+  padding: 5px;
+  justify-items: center;
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: capitalize;
+}
+.itensSide img {
+  width: 1.8rem;
+  justify-content: center;
+
+  aspect-ratio: 1/1;
+}
+
+/*-----------------------------*/
 
 .div8 {
   grid-area: 3 / 13 / 8 / 17;
