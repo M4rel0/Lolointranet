@@ -34,6 +34,19 @@ body {
 search {
   margin-top: 1.06rem;
 }
+
+input[type="search"]:focus {
+  outline: none;
+  box-shadow: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  display: none;
+}
+
 .grid {
   display: flex;
   justify-content: space-evenly;
@@ -45,6 +58,7 @@ search {
 
 .gridConteudo {
   width: max-content;
+  margin-top: -100px;
 }
 .gridConteudo form {
   display: flex;
@@ -54,8 +68,8 @@ search {
   width: 42.75rem;
   height: 3rem;
   border-radius: 0.25rem;
-  background: #c9c9c9;
-  background: #c9c9c9;
+
+  background: #f8f8f8;
   box-shadow: 0px 0px 4px 0px rgba(53, 12, 2, 0.25),
     0px 4px 4px 0px rgba(53, 12, 2, 0.15),
     0px 0px 3.748px 0px rgba(0, 0, 0, 0.1) inset;
@@ -71,6 +85,12 @@ search {
 
 .gridConteudo form img {
   margin-right: 1.14rem;
+  cursor: pointer;
+}
+#pesqTicketID {
+  font-size: 1.2rem;
+  color: #915c3d;
+  margin-left: 1.1rem;
 }
 #pesqTicketID::placeholder {
   color: #aa7556;
@@ -80,7 +100,6 @@ search {
   font-style: italic;
   font-weight: 400;
   line-height: normal;
-  padding-left: 1.14rem;
 }
 
 .gridConteudo h1 {
@@ -102,11 +121,12 @@ search {
 }
 
 .li {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.45rem;
 
-  padding: 1.6875rem 1.575rem;
+  padding: 2rem;
   border-radius: 0.5rem;
   background: #ff5d00;
   box-shadow: 0px 3.6px 3.6px 0px rgba(0, 0, 0, 0.25),
@@ -115,9 +135,160 @@ search {
   align-items: center;
   text-align: center;
 }
+.li img {
+  width: 50px;
+}
 .li p {
   width: 4.35rem;
+  color: #fff;
+  font-size: 17px;
 }
 .raposaIMG {
-  margin-bottom: -15%;
+  margin-bottom: -10%;
+  margin-right: -8%;
+}
+
+.dropdown-button {
+  color: #fff;
+  text-decoration: none;
+  width: max-content;
+  height: max-content;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f5f5f5;
+  bottom: -80%;
+  left: -10%;
+  padding: 16px;
+  border-radius: 5px;
+  width: 120px;
+  box-shadow: 0px 3.6px 9px 0px rgba(0, 0, 0, 0.25),
+    0px 3.6px 9.81px 0px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+}
+
+.dropdown-content li a {
+  color: #333;
+  font-size: 17px;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content li a:hover {
+  background-color: #ff6600;
+  border-radius: 4.5px;
+  color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/*----------*/
+
+.teste1 {
+  display: flex;
+
+  height: max-content;
+  flex-direction: column;
+}
+
+.teste1 textarea {
+  display: flex;
+  height: 130px;
+  width: 984px;
+  margin: 20px 0;
+  color: #350c02;
+  padding: 24px;
+  border-radius: 0.875rem;
+  border: 2px solid #ff4b00;
+  font-size: 1rem;
+  font-style: normal;
+  resize: none;
+  overflow-wrap: break-word;
+}
+.teste1 input[type="file"] {
+  height: 130px;
+  padding: 20px;
+  border-radius: 0.82619rem;
+  border: 2px dashed #ff986b;
+  background: #fff9f3;
+  margin: 10px;
+}
+
+/*---------------*/
+.upload-area {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  gap: 22px;
+
+  border: 2px dashed #f4a261;
+  background-color: #fff9f3;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  width: 649px;
+  height: 130px;
+}
+
+.upload-area:hover {
+  background-color: #fbe9d7;
+}
+
+.upload-area .icon {
+  font-size: 24px;
+  color: #f4a261;
+}
+
+.upload-area p {
+  font-size: 14px;
+  color: #666;
+}
+
+.upload-area span {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  margin-top: 1.1rem;
+  display: flex;
+  width: min-content;
+  height: 2.6875rem;
+  padding: 0.75rem 1.66rem;
+
+  border: none;
+
+  justify-content: center;
+  align-items: center;
+  gap: 0.22031rem;
+  flex-shrink: 0;
+  color: #fff;
+
+  border-radius: 0.625rem;
+  background: #ff701e;
+}
+button a {
+  text-wrap: nowrap;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+button:hover {
+  background: #cf5611;
+}
+.teste1 textarea:focus {
+  outline: none;
+  border: 2px solid #ff4b00;
 }

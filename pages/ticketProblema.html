@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Novo Ticket</h1>
+
+        <div class="iconTicket">
+
+            <a id="voltarIntra" href=""><img src="../img/fechar.svg" alt=""></a>
+        </div>
+    </header>
+
+    <section class="grid">
+        <div class="gridConteudo">
+            <h1>Descreva o seu problema</h1>
+            <div class="teste1">
+
+                <textarea name="nome" placeholder="Descreva seu problema aqui."></textarea>
+
+
+                <div class="upload-area" id="upload-area">
+                    <i class="icon"><img src="../img/baixar.svg" alt=""></i>
+                    <p>Arraste e solte aqui arquivos, ou <span id="file-selector">selecione do seu computador</span></p>
+                    <input type="file" id="file-input" hidden>
+                </div>
+
+                <button type="button" id="voltarIntra">
+                    <a>Envia rticket</a>
+                </button>
+            </div>
+
+
+
+        </div>
+
+
+        <img class="raposaIMG" src="../img/raposaTicket.svg" alt="">
+    </section>
+</body>
+
+<script src="../script.js"></script>
+
+</html>

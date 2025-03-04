@@ -652,3 +652,17 @@ body {
 .eventoCard {
   background: #b2faff;
 }
+/*-----------*/
+.iframe {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  border: none;
+  width: 1700px;
+  height: 837px;
+  z-index: 100;
+  border-radius: 25px;
+  box-shadow: 0px 0px 15px 0px rgba(53, 12, 2, 0.5),
+    0px 4px 10px 0px rgba(53, 12, 2, 0.5);
+}
