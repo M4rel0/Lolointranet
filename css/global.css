@@ -17,3 +17,9 @@ html {
 body {
   background: #ffe0c7;
 }
+ul {
+  text-decoration: 0;
+}
+li {
+  text-decoration: 0;
+}
