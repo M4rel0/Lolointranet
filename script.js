@@ -137,3 +137,32 @@ async function mostrarData() {
 
 // Executa a função quando a página carrega
 mostrarData();
+//
+document.addEventListener("DOMContentLoaded", function () {
+  // Seleciona o link que abre o modal
+  var abrirModalLink = document.getElementById("abrirModal");
+  // Seleciona o iframe que contém o ticket
+  var ticketIframe = document.querySelector("iframe[src='./ticket.html']");
+
+  // Adiciona o evento de clique para mostrar o iframe
+  if (abrirModalLink && ticketIframe) {
+    abrirModalLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      ticketIframe.style.display = "block";
+    });
+  }
+
+  // Ao carregar o conteúdo do iframe, adiciona o evento para fechar
+  if (ticketIframe) {
+    ticketIframe.addEventListener("load", function () {
+      var voltarIntraLink =
+        ticketIframe.contentDocument.getElementById("voltarIntra");
+      if (voltarIntraLink) {
+        voltarIntraLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          ticketIframe.style.display = "none";
+        });
+      }
+    });
+  }
+});
