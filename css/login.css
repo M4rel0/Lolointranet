@@ -196,13 +196,13 @@ p {
   justify-content: space-between;
   margin-right: 1rem;
 }
-.form__group {
+.formGroup {
   display: flex;
   flex-direction: column;
 
   margin-bottom: 10px;
 }
-.form__group input {
+.formGroup input {
   height: 60px;
 
   background: transparent;
@@ -255,14 +255,15 @@ input::placeholder {
   line-height: normal;
 }
 
-.form__footer {
+.formFooter {
   display: flex;
 }
-.form__footer a {
+.formFooter a {
   font-style: normal;
   list-style: none;
   text-decoration: none;
   color: #350c02;
+  width: 100%;
 }
 .btn {
   height: 3.68631rem;
