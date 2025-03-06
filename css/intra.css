@@ -666,3 +666,17 @@ body {
   box-shadow: 0px 0px 15px 0px rgba(53, 12, 2, 0.5),
     0px 4px 10px 0px rgba(53, 12, 2, 0.5);
 }
+.iframeDocumentos {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: none;
+  width: 705px;
+  height: 675px;
+  z-index: 100;
+  border-radius: 25px;
+  box-shadow: 0px 0px 15px 0px rgba(53, 12, 2, 0.5),
+    0px 4px 10px 0px rgba(53, 12, 2, 0.5);
+}

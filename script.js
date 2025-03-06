@@ -140,9 +140,15 @@ mostrarData();
 document.addEventListener("DOMContentLoaded", function () {
   var abrirModalLink = document.getElementById("abrirModal");
   var abrirModalChatLink = document.getElementById("abrirModalChat");
+  var abrirModalDocumentLink = document.getElementById("abrirModaldocumento");
+
   // Seleciona o iframe que contém o ticket
   var ticketIframe = document.querySelector("iframe[src='./ticket.html']");
   var ticketIframeChat = document.querySelector("iframe[src='./chat.html']");
+  var ticketIframeDocumento = document.querySelector(
+    "iframe[src='./documentos.html']"
+  );
+
   if (abrirModalLink && ticketIframe) {
     abrirModalLink.addEventListener("click", function (event) {
       event.preventDefault();
@@ -178,6 +184,28 @@ document.addEventListener("DOMContentLoaded", function () {
         voltarIntraLink.addEventListener("click", function (e) {
           e.preventDefault();
           ticketIframeChat.style.display = "none";
+        });
+      }
+    });
+  }
+
+  ////
+
+  if (abrirModalDocumentLink && ticketIframeDocumento) {
+    abrirModalDocumentLink.addEventListener("click", function (event) {
+      event.preventDefault();
+      ticketIframeDocumento.style.display = "block";
+    });
+  }
+
+  if (ticketIframeDocumento) {
+    ticketIframeDocumento.addEventListener("load", function () {
+      var voltarIntraLink =
+        ticketIframeDocumento.contentDocument.getElementById("voltarIntra");
+      if (voltarIntraLink) {
+        voltarIntraLink.addEventListener("click", function (e) {
+          e.preventDefault();
+          ticketIframeDocumento.style.display = "none";
         });
       }
     });

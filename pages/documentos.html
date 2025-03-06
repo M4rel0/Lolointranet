@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header class="headerDoc">
+        <h1>Adicionar anexos</h1>
+
+        <div class="iconTicketDoc">
+
+            <a id="voltarIntra" href=""><img src="../img/fechar.svg" alt=""></a>
+        </div>
+    </header>
+    <section class="sectionDoc">
+        <div class="upload-area uploadAreaDoc" id="upload-area">
+            <i class="icon"><img src="../img/baixar.svg" alt=""></i>
+            <p>Arraste e solte aqui arquivos, ou <span id="file-selector">selecione do seu computador</span></p>
+            <input class="fileInput" type="file" id="file-input" hidden>
+        </div>
+        <section class="arquivoDoc" id="arquivo">
+            <div class="arquivoback">
+                <div class="space">
+                    <img src="../img/file.svg" alt="">
+                    <div class="textArquive">
+                        <p>Doc.pdf</p>
+                        <span><span>100k</span>Download Completo</span>
+                    </div>
+                </div>
+                <img src="../img/lixeira.svg" alt="">
+
+            </div>
+        </section>
+        <textarea name="nome" placeholder="Descreva seu problema aqui."></textarea>
+    </section>
+    <script src="../documentos.js">ajustarAlturaUploadArea()</script>
+
+
+
+</body>
+
+
+</html>

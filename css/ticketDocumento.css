@@ -1,0 +1,102 @@
+body {
+  background: linear-gradient(0deg, #fff 0%, #fafafa 100%);
+}
+.headerDoc {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+}
+.headerDoc h1 {
+  color: #ff5d19;
+
+  font-family: Kavoon;
+  font-size: 1.95313rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.headerDoc h1,
+.iconTicketDoc img {
+  margin: 0;
+}
+.iconTicketDoc {
+  display: flex;
+
+  padding: 5px;
+}
+
+.sectionDoc {
+  display: flex;
+  flex-direction: column;
+  background: #657865;
+  padding: 5px 28px 35px 28px;
+  gap: 25px;
+  box-sizing: border-box;
+}
+.sectionDoc * {
+  box-sizing: inherit;
+}
+.uploadAreaDoc {
+  height: 130px;
+}
+
+.arquivoDoc {
+  display: none;
+
+  max-height: 71px;
+  box-sizing: border-box;
+}
+.arquivoDoc * {
+  box-sizing: border-box;
+}
+
+.arquivoback {
+  border-radius: 0.82619rem;
+  border: 1.763px solid #ff986b;
+  display: flex;
+  justify-content: space-between;
+  background: #fff9f3;
+  padding: 18px 0 19px 11px;
+}
+.arquivoback img {
+  margin-right: 15px;
+  cursor: pointer;
+}
+.space {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 19px;
+}
+.space img {
+  max-width: 23px;
+  max-height: 26px;
+}
+
+.textArquive {
+  display: flex;
+  flex-direction: column;
+
+  color: #350c02;
+
+  text-align: right;
+  font-family: Inter;
+  font-size: 1.10156rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.textArquive span {
+  color: #818181;
+  text-align: right;
+  font-family: Inter;
+  font-size: 0.60069rem;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+.textArquive p {
+  text-align: start;
+}
