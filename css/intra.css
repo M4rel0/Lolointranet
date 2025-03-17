@@ -312,6 +312,20 @@ body {
   width: 100%;
 }
 
+#remoto:hover {
+  background: #f9977f;
+}
+#presencial:hover {
+  background: #f9977f;
+}
+#start:hover {
+  background: #832503;
+}
+
+.botaoAtivo {
+  background: #5c1909 !important;
+  color: #ffffff !important;
+}
 /*-----------------------------*/
 .div4 {
   grid-area: 4 / 10 / 8 / 13;

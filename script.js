@@ -3,7 +3,8 @@ let minutes = 0;
 let timer;
 let running = false;
 let holdTimeout;
-let longPress = false; // Flag para controlar o clique longo
+let longPress = false;
+let travadotempo = true;
 
 function updateDisplay() {
   document.getElementById("counter").textContent = `${String(minutes).padStart(
@@ -21,7 +22,29 @@ function resetTimer() {
 }
 
 // Configurar eventos para o botão
+const botaoRemoto = document.getElementsByClassName("botaoRemoto")[0];
+const botaoPresencial = document.getElementsByClassName("botaoPresencial")[0];
+
 const startButton = document.getElementById("start");
+
+function removerseleçao() {
+  botaoPresencial.classList.remove("botaoAtivo");
+  botaoRemoto.classList.remove("botaoAtivo");
+}
+
+botaoRemoto.addEventListener("click", function () {
+  if (travadotempo) {
+    removerseleçao();
+    this.classList.add("botaoAtivo");
+  }
+});
+
+botaoPresencial.addEventListener("click", function () {
+  if (travadotempo) {
+    removerseleçao();
+    this.classList.add("botaoAtivo");
+  }
+});
 
 // Iniciar contagem do clique longo
 startButton.addEventListener("mousedown", startHold);
@@ -36,7 +59,8 @@ function startHold() {
   longPress = false;
   holdTimeout = setTimeout(() => {
     resetTimer();
-    longPress = true; // Marca que houve um clique longo
+    longPress = true;
+    startButton.textContent = "Começar Trabalho";
   }, 2000);
 }
 
@@ -47,11 +71,14 @@ function endHold() {
 // Evento de clique normal
 startButton.addEventListener("click", function () {
   if (longPress) {
-    longPress = false; // Reseta a flag após o clique longo
+    longPress = false;
+
     return;
   }
 
   if (!running) {
+    startButton.textContent = "Pausar";
+    travadotempo = false;
     running = true;
     timer = setInterval(() => {
       seconds++;
@@ -62,7 +89,9 @@ startButton.addEventListener("click", function () {
       updateDisplay();
     }, 1000);
   } else {
+    startButton.textContent = "Começar Trabalho";
     running = false;
+    travadotempo = true;
     clearInterval(timer);
   }
 });
