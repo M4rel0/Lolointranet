@@ -58,7 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleFiles(files) {
     if (files.length > 0) {
       console.log("Arquivo selecionado:", files[0]);
-      // Adicione aqui o código de upload ou preview
     }
   }
 });
@@ -66,7 +65,6 @@ document.addEventListener("DOMContentLoaded", function () {
 //
 
 document.getElementById("upload-area").addEventListener("click", function (e) {
-  // Impede que clique no span dispare 2 eventos
   if (e.target.tagName !== "SPAN") {
     document.getElementById("file-input").click();
   }

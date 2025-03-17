@@ -29,10 +29,11 @@ body {
 
 .sectionDoc {
   display: flex;
+  height: 90%;
   flex-direction: column;
-  background: #657865;
+
   padding: 5px 28px 35px 28px;
-  gap: 25px;
+
   box-sizing: border-box;
 }
 .sectionDoc * {
@@ -99,4 +100,34 @@ body {
 }
 .textArquive p {
   text-align: start;
+}
+
+.inputTextoDocumentos {
+  height: 210px;
+  border-radius: 17px;
+
+  border: 1.5px solid #ff4b00;
+}
+.labelInput {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+.enviarDocumento {
+  display: flex;
+  align-self: baseline;
+
+  border: none;
+  height: 75px;
+  width: 100%;
+  font-size: 17.63px;
+  font-weight: bold;
+  margin: 0;
+  padding: 30px 224px;
+  margin-top: 20px;
 }
