@@ -27,6 +27,31 @@ body {
   right: 150px;
   top: 63px;
   z-index: 2;
+  animation: flutuar 3s infinite;
+  overflow: hidden; /* Evita que o conteúdo vaze antes da animação */
+  animation: desenrolar 3s ease-in-out forwards;
+}
+
+@keyframes flutuar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes desenrolar {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: 100%; /* Altura final desejada */
+    opacity: 1;
+  }
 }
 .imgLogin .color {
   position: absolute;
@@ -146,6 +171,19 @@ p {
     rgba(252, 177, 39, 0.297) 1%,
     rgba(255, 255, 255, 0.168) 100%
   );
+  animation: slidemenu 2s ease;
+}
+@keyframes slidemenu {
+  from {
+    transform: translateX(-130%);
+  }
+
+  50% {
+    transform: translateX(10%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
 .tituloLogin {
   color: #fff;

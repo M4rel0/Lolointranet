@@ -192,7 +192,21 @@ body {
   height: 300px;
   right: 0%;
   bottom: -3%;
+  animation: slide 2s ease;
 }
+
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  50% {
+    transform: translateX(-10%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
 .f {
   height: 178.26px;
   right: -17%;
@@ -208,6 +222,7 @@ body {
   background-color: rgba(0, 0, 0, 0);
   flex-direction: column;
   text-align: end;
+  animation: slide 2s ease;
 }
 
 .dia {
@@ -473,7 +488,20 @@ body {
   left: 50%;
   transform: translateX(-50%);
   z-index: -1;
+  animation: slideCha 2s ease;
 }
+@keyframes slideCha {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(-30%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .fundo {
   content: none;
   position: absolute;
@@ -503,6 +531,20 @@ body {
 
   width: 10.99944rem;
   height: 5.43756rem;
+
+  animation: slide2 2s ease;
+}
+
+@keyframes slide2 {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(+30%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .menuSide {
@@ -694,3 +736,14 @@ body {
   box-shadow: 0px 0px 15px 0px rgba(53, 12, 2, 0.5),
     0px 4px 10px 0px rgba(53, 12, 2, 0.5);
 }
+
+/*------------------------------------------------------
+@keyframes slide {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+*/
