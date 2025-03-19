@@ -296,7 +296,7 @@ input::placeholder {
 .formFooter {
   display: flex;
 }
-.formFooter a {
+.formFooter button {
   font-style: normal;
   list-style: none;
   text-decoration: none;
@@ -304,7 +304,10 @@ input::placeholder {
   width: 100%;
 }
 .btn {
-  height: 3.68631rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
   width: 100%;
   border-radius: 0.9375rem;
   background: #fff;
@@ -315,6 +318,10 @@ input::placeholder {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+.btn:hover {
+  background: #d74100;
+  color: #ffffff;
 }
 
 /*--*/

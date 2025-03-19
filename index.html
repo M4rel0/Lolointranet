@@ -30,8 +30,11 @@
                     <p> Feita para ser divertida e fácil de usar.</p>
                     <p>Oops, sem login?<br>
                         Relaxa, pode usar o meu para dar uma espiadinha!</p>
-                    <p>Email: Chai.s.designer@gmail.com <br>
-                        Senha: 123</p>
+                    <p>Email: <a href="#"
+                            onclick="copyToClipboard('Chai.s.designer@gmail.com')">Chai.s.designer@gmail.com</a>
+                        <br>
+                        Senha: 123
+                    </p>
                 </div>
             </div>
         </div>
@@ -47,8 +50,8 @@
             </div>
 
 
-            <form class="form" action="">
-                <div class="espacamento">
+            <form class="form" onsubmit="login(event)">
+                <div class=" espacamento">
                     <div class="formGroup">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" placeholder="Insira seu e-mail">
@@ -70,7 +73,7 @@
 
                 </div>
                 <div class="formFooter">
-                    <button class="btn"><a href="./pages/intra.html">Login</a></button>
+                    <button type="submit" class="btn">Login</button>
                 </div>
 
             </form>
@@ -82,6 +85,7 @@
         </main>
 
     </div>
+    <script src="../login.js"></script>
     <script src="../script.js"></script>
     <script src="../chat.js"></script>
     <script src="../documentos.js"></script>

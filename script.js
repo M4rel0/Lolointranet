@@ -6,11 +6,14 @@ let holdTimeout;
 let longPress = false;
 let travadotempo = true;
 
+// Funções que não dependem diretamente de elementos do DOM no momento da inicialização
 function updateDisplay() {
-  document.getElementById("counter").textContent = `${String(minutes).padStart(
-    2,
-    "0"
-  )}:${String(seconds).padStart(2, "0")}`;
+  const counter = document.getElementById("counter");
+  if (counter) {
+    counter.textContent = `${String(minutes).padStart(2, "0")}:${String(
+      seconds
+    ).padStart(2, "0")}`;
+  }
 }
 
 function resetTimer() {
@@ -21,222 +24,174 @@ function resetTimer() {
   updateDisplay();
 }
 
-// Configurar eventos para o botão
-const botaoRemoto = document.getElementsByClassName("botaoRemoto")[0];
-const botaoPresencial = document.getElementsByClassName("botaoPresencial")[0];
+document.addEventListener("DOMContentLoaded", function () {
+  // ========== [Timer Logic] ==========
+  const botaoRemoto = document.getElementsByClassName("botaoRemoto")[0];
+  const botaoPresencial = document.getElementsByClassName("botaoPresencial")[0];
+  const startButton = document.getElementById("start");
 
-const startButton = document.getElementById("start");
-
-function removerseleçao() {
-  botaoPresencial.classList.remove("botaoAtivo");
-  botaoRemoto.classList.remove("botaoAtivo");
-}
-
-botaoRemoto.addEventListener("click", function () {
-  if (travadotempo) {
-    removerseleçao();
-    this.classList.add("botaoAtivo");
+  function removerseleçao() {
+    botaoPresencial?.classList.remove("botaoAtivo");
+    botaoRemoto?.classList.remove("botaoAtivo");
   }
+
+  if (botaoRemoto && botaoPresencial) {
+    botaoRemoto.addEventListener("click", function () {
+      if (travadotempo) {
+        removerseleçao();
+        this.classList.add("botaoAtivo");
+      }
+    });
+
+    botaoPresencial.addEventListener("click", function () {
+      if (travadotempo) {
+        removerseleçao();
+        this.classList.add("botaoAtivo");
+      }
+    });
+  }
+
+  if (startButton) {
+    // Eventos de clique longo
+    startButton.addEventListener("mousedown", startHold);
+    startButton.addEventListener("touchstart", startHold);
+    startButton.addEventListener("mouseup", endHold);
+    startButton.addEventListener("touchend", endHold);
+    startButton.addEventListener("mouseleave", endHold);
+
+    // Evento de clique normal
+    startButton.addEventListener("click", function () {
+      if (longPress) {
+        longPress = false;
+        return;
+      }
+
+      if (!running) {
+        startButton.textContent = "Pausar";
+        travadotempo = false;
+        running = true;
+        timer = setInterval(() => {
+          seconds++;
+          if (seconds === 60) {
+            seconds = 0;
+            minutes++;
+          }
+          updateDisplay();
+        }, 1000);
+      } else {
+        startButton.textContent = "Começar Trabalho";
+        running = false;
+        travadotempo = true;
+        clearInterval(timer);
+      }
+    });
+  }
+
+  // ========== [Task Check Logic] ==========
+  const taskcheck = document.getElementsByClassName("lista");
+  for (let i = 0; i < taskcheck.length; i++) {
+    taskcheck[i].addEventListener("click", function () {
+      const imagem = taskcheck[i].getElementsByTagName("img")[0];
+      if (imagem?.src.includes("checkaudrado.svg")) {
+        imagem.src = "../img/checkcomsetinha.svg";
+      } else {
+        imagem.src = "../img/checkaudrado.svg";
+      }
+    });
+  }
+
+  // ========== [Date Logic] ==========
+  async function mostrarData() {
+    try {
+      const resposta = await fetch(
+        "https://timeapi.io/api/Time/current/zone?timeZone=America/Sao_Paulo"
+      );
+      const dados = await resposta.json();
+
+      const diasSemana = {
+        /* ... */
+      };
+      const meses = {
+        /* ... */
+      };
+
+      // Atualização dos elementos com verificação
+      const updateIfExists = (id, content) => {
+        const element = document.getElementById(id);
+        if (element) element.textContent = content;
+      };
+
+      updateIfExists("DiasID", diasSemana[dados.dayOfWeek] || dados.dayOfWeek);
+      updateIfExists("HorasID", dados.day);
+      updateIfExists("MesID", meses[dados.month] || dados.month);
+      updateIfExists(
+        "HorasAtualID",
+        dados.time.split("T")[1].split(":").slice(0, 2).join(":")
+      );
+    } catch (erro) {
+      console.log("Erro ao obter data da API: ", erro);
+    }
+  }
+  mostrarData();
+
+  // ========== [Modal Logic] ==========
+  const abrirModalLink = document.getElementById("abrirModal");
+  const abrirModalChatLink = document.getElementById("abrirModalChat");
+  const abrirModalDocumentLink = document.getElementById("abrirModaldocumento");
+
+  // Função genérica para manipulação de iframes
+  const setupIframe = (iframe, openButton) => {
+    if (openButton && iframe) {
+      openButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        iframe.style.display = "block";
+      });
+
+      iframe.addEventListener("load", () => {
+        const voltarLink =
+          iframe.contentDocument?.getElementById("voltarIntra");
+        if (voltarLink) {
+          voltarLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            iframe.style.display = "none";
+          });
+        }
+      });
+    }
+  };
+
+  setupIframe(
+    document.querySelector("iframe[src='./ticket.html']"),
+    abrirModalLink
+  );
+  setupIframe(
+    document.querySelector("iframe[src='./chat.html']"),
+    abrirModalChatLink
+  );
+  setupIframe(
+    document.querySelector("iframe[src='./documentos.html']"),
+    abrirModalDocumentLink
+  );
+
+  // ========== [Login Fix] ==========
+  document
+    .querySelector(".formFooter a")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = this.href;
+    });
 });
 
-botaoPresencial.addEventListener("click", function () {
-  if (travadotempo) {
-    removerseleçao();
-    this.classList.add("botaoAtivo");
-  }
-});
-
-// Iniciar contagem do clique longo
-startButton.addEventListener("mousedown", startHold);
-startButton.addEventListener("touchstart", startHold);
-
-// Finalizar contagem do clique longo
-startButton.addEventListener("mouseup", endHold);
-startButton.addEventListener("touchend", endHold);
-startButton.addEventListener("mouseleave", endHold);
-
+// ========== [Hold Functions] ==========
 function startHold() {
   longPress = false;
   holdTimeout = setTimeout(() => {
     resetTimer();
     longPress = true;
-    startButton.textContent = "Começar Trabalho";
+    document.getElementById("start").textContent = "Começar Trabalho";
   }, 2000);
 }
 
 function endHold() {
   clearTimeout(holdTimeout);
 }
-
-// Evento de clique normal
-startButton.addEventListener("click", function () {
-  if (longPress) {
-    longPress = false;
-
-    return;
-  }
-
-  if (!running) {
-    startButton.textContent = "Pausar";
-    travadotempo = false;
-    running = true;
-    timer = setInterval(() => {
-      seconds++;
-      if (seconds === 60) {
-        seconds = 0;
-        minutes++;
-      }
-      updateDisplay();
-    }, 1000);
-  } else {
-    startButton.textContent = "Começar Trabalho";
-    running = false;
-    travadotempo = true;
-    clearInterval(timer);
-  }
-});
-/**------------------------------------------------- */
-const taskcheck = document.getElementsByClassName("lista");
-
-for (let i = 0; i < taskcheck.length; i++) {
-  taskcheck[i].addEventListener("click", function () {
-    // Seleciona a imagem dentro do item da lista
-    const imagem = taskcheck[i].getElementsByTagName("img")[0];
-
-    if (imagem.src.includes("checkaudrado.svg")) {
-      imagem.src = "../img/checkcomsetinha.svg"; // Caminho correto para "checkcomsetinha.svg"
-    } else {
-      imagem.src = "../img/checkaudrado.svg"; // Caminho correto para "checkaudrado.svg"
-    }
-  });
-}
-
-async function mostrarData() {
-  try {
-    // Faz a requisição para a API timeapi.io
-    const resposta = await fetch(
-      "https://timeapi.io/api/Time/current/zone?timeZone=America/Sao_Paulo"
-    );
-    const dados = await resposta.json();
-
-    // Arrays de tradução para português
-    const diasSemana = {
-      Monday: "Segunda-feira",
-      Tuesday: "Terça-feira",
-      Wednesday: "Quarta-feira",
-      Thursday: "Quinta-feira",
-      Friday: "Sexta-feira",
-      Saturday: "Sábado",
-      Sunday: "Domingo",
-    };
-
-    const meses = {
-      January: "Janeiro",
-      February: "Fevereiro",
-      March: "Março",
-      April: "Abril",
-      May: "Maio",
-      June: "Junho",
-      July: "Julho",
-      August: "Agosto",
-      September: "Setembro",
-      October: "Outubro",
-      November: "Novembro",
-      December: "Dezembro",
-    };
-
-    // Obtém os valores e traduz
-    const diaSemana = diasSemana[dados.dayOfWeek] || dados.dayOfWeek;
-    const diaDoMes = dados.day;
-    const mes = meses[dados.month] || dados.month;
-
-    // Obtém a hora atual (no formato 24 horas)
-    const hora = dados.time.split("T")[1].split(":");
-    const horaAtual = hora[0] + ":" + hora[1];
-
-    // Atualiza os elementos do HTML com os IDs corretos
-    document.getElementById("DiasID").textContent = diaSemana;
-    document.getElementById("HorasID").textContent = diaDoMes;
-    document.getElementById("MesID").textContent = mes;
-    document.getElementById("HorasAtualID").textContent = horaAtual;
-  } catch (erro) {
-    console.log("Erro ao obter data da API: ", erro);
-  }
-}
-
-mostrarData();
-//
-document.addEventListener("DOMContentLoaded", function () {
-  var abrirModalLink = document.getElementById("abrirModal");
-  var abrirModalChatLink = document.getElementById("abrirModalChat");
-  var abrirModalDocumentLink = document.getElementById("abrirModaldocumento");
-
-  // Seleciona o iframe que contém o ticket
-  var ticketIframe = document.querySelector("iframe[src='./ticket.html']");
-  var ticketIframeChat = document.querySelector("iframe[src='./chat.html']");
-  var ticketIframeDocumento = document.querySelector(
-    "iframe[src='./documentos.html']"
-  );
-
-  if (abrirModalLink && ticketIframe) {
-    abrirModalLink.addEventListener("click", function (event) {
-      event.preventDefault();
-      ticketIframe.style.display = "block";
-    });
-  }
-
-  if (ticketIframe) {
-    ticketIframe.addEventListener("load", function () {
-      var voltarIntraLink =
-        ticketIframe.contentDocument.getElementById("voltarIntra");
-      if (voltarIntraLink) {
-        voltarIntraLink.addEventListener("click", function (e) {
-          e.preventDefault();
-          ticketIframe.style.display = "none";
-        });
-      }
-    });
-  }
-
-  if (abrirModalChatLink && ticketIframeChat) {
-    abrirModalChatLink.addEventListener("click", function (event) {
-      event.preventDefault();
-      ticketIframeChat.style.display = "block";
-    });
-  }
-
-  if (ticketIframeChat) {
-    ticketIframeChat.addEventListener("load", function () {
-      var voltarIntraLink =
-        ticketIframeChat.contentDocument.getElementById("voltarIntra");
-      if (voltarIntraLink) {
-        voltarIntraLink.addEventListener("click", function (e) {
-          e.preventDefault();
-          ticketIframeChat.style.display = "none";
-        });
-      }
-    });
-  }
-
-  ////
-
-  if (abrirModalDocumentLink && ticketIframeDocumento) {
-    abrirModalDocumentLink.addEventListener("click", function (event) {
-      event.preventDefault();
-      ticketIframeDocumento.style.display = "block";
-    });
-  }
-
-  if (ticketIframeDocumento) {
-    ticketIframeDocumento.addEventListener("load", function () {
-      var voltarIntraLink =
-        ticketIframeDocumento.contentDocument.getElementById("voltarIntra");
-      if (voltarIntraLink) {
-        voltarIntraLink.addEventListener("click", function (e) {
-          e.preventDefault();
-          ticketIframeDocumento.style.display = "none";
-        });
-      }
-    });
-  }
-});
