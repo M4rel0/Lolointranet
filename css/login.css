@@ -234,6 +234,9 @@ p {
   justify-content: space-between;
   margin-right: 1rem;
 }
+#email {
+  font-size: 20px;
+}
 .formGroup {
   display: flex;
   flex-direction: column;
