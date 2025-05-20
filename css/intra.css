@@ -25,7 +25,7 @@ body {
   grid-column-gap: 20px;
   grid-row-gap: 1.25rem;
   padding-top: 16px;
-
+  max-height: calc(100vh - 1rem);
   height: 100%;
   margin-right: 1.25rem;
 }
@@ -257,12 +257,14 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  height: calc(100% - 2.13rem);
 }
 .titulotimer {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
   width: fit-content;
+  height: fit-content;
 
   grid-column: 1 / 2;
 }
@@ -341,6 +343,50 @@ body {
   background: #5c1909 !important;
   color: #ffffff !important;
 }
+
+@media (max-width: 1700px) {
+  .botoesTimer {
+    display: flex;
+  }
+  .botoesTimer button {
+    display: flex;
+    width: 45% !important;
+    align-items: center;
+  }
+  .botoesTimer button:last-child {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 1250px) {
+  .titulotimer p {
+    font-size: smaller;
+  }
+  .botoesTimer {
+    display: flex;
+    flex-grow: 0;
+    column-gap: 0;
+    row-gap: 0;
+    gap: 2%;
+    align-items: center;
+  }
+  .botoesTimer button {
+    display: flex;
+    padding: 1rem;
+    width: 30% !important;
+    gap: 0.3rem;
+    align-items: center;
+    text-align: center;
+    height: 70%;
+    font-size: small;
+  }
+  .botoesTimer button:last-child {
+    white-space: wrap;
+    font-size: 0.9rem !important;
+    text-transform: lowercase !important;
+    font-weight: normal !important;
+  }
+}
+
 /*-----------------------------*/
 .div4 {
   grid-area: 4 / 10 / 8 / 13;
